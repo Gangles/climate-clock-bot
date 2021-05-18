@@ -34,11 +34,10 @@ def getClimateData():
 	return data['data']['modules']
 
 def assembleTweet(data):
-	data_15C = data['carbon_deadline_1']['deadlines']['1.5C']['figures']
-	carbon_budget = data_15C['ipcc_budget_tons_CO2']
-	carbon_per_year = data_15C['ipcc_emissions_tons_CO2_per_year']
+	carbon_budget = 420000000000
+	carbon_per_year = 42000000000
 
-	starttime = parse(data_15C['ipcc_budget_start'])
+	starttime = datetime(2018, 1, 1, 0, 0, 0, 0, timezone.utc)
 	endtime = parse(data['carbon_deadline_1']['timestamp'])
 	nowtime = datetime.now(timezone.utc)
 	remaining = relativedelta(endtime, nowtime)
@@ -75,8 +74,8 @@ if __name__ == "__main__":
 	# heroku scheduler runs every 12 hours
 	try:
 		# assemble climate data
-		data = getClimateData();
-		to_tweet = assembleTweet(data);
+		data = getClimateData()
+		to_tweet = assembleTweet(data)
 		print(to_tweet.encode('ascii', 'ignore'))
 
 		# post the tweet
