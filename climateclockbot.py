@@ -16,6 +16,7 @@ from datetime import datetime, timezone
 from datetime import timedelta
 from dateutil.parser import *
 from dateutil.relativedelta import relativedelta
+from mastodon import Mastodon
 from twython import Twython
 
 def connectTwitter():
@@ -77,10 +78,18 @@ if __name__ == "__main__":
 		data = getClimateData()
 		to_tweet = assembleTweet(data)
 		print(to_tweet.encode('ascii', 'ignore'))
-
+		
 		# post the tweet
 		twitter = connectTwitter()
 		post_tweet(twitter, to_tweet)
+		
+		# post to Mastodon, secret token generated offline
+		mastodon = Mastodon(
+			access_token = 'mastodon_user.secret',
+			api_base_url = 'https://botsin.space'
+		)
+		mastodon.toot(to_tweet)
+
 		sys.exit(0) # success!
 	except SystemExit as e:
 		# working as intended, exit normally

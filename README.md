@@ -1,7 +1,7 @@
 Climate Clock Bot
 ====================================
 
-**This bot is deployed at: [https://twitter.com/ClimateClockBot](https://twitter.com/ClimateClockBot)**
+**This bot is deployed at: [twitter.com/ClimateClockBot](https://twitter.com/ClimateClockBot) and [botsin.space/@ClimateClockBot](https://botsin.space/@ClimateClockBot)**
 
 A bot that tweets daily updates about worldwide CO₂ emissions relative to the [1.5°C carbon budget](https://www.ipcc.ch/sr15/chapter/spm/#article-spm-c) outlined by the IPCC.
 
