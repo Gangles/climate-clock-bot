@@ -35,10 +35,10 @@ def getClimateData():
 	return data['data']['modules']
 
 def assembleTweet(data):
-	carbon_budget = 420000000000
+	carbon_budget = 400000000000
 	carbon_per_year = 42000000000
 
-	starttime = datetime(2018, 1, 1, 0, 0, 0, 0, timezone.utc)
+	starttime = datetime(2020, 1, 1, 0, 0, 0, 0, timezone.utc)
 	endtime = parse(data['carbon_deadline_1']['timestamp'])
 	nowtime = datetime.now(timezone.utc)
 	remaining = relativedelta(endtime, nowtime)
